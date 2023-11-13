@@ -16,4 +16,4 @@ while(1):
     RANDl2 = ''.join(random.choice(string.ascii_uppercase) for _ in range(16))
     writeToLCD(lcd, RANDl1, 1)
     writeToLCD(lcd, RANDl2, 2)
-    time.sleep(1)
+    time.sleep(5)
