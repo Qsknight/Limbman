@@ -12,11 +12,9 @@ ser = serial.Serial ("/dev/ttyS0", 9600)
 
 # Loop
 while(1):
-    received_data = ser.read() 
-    if(received_data.decode("utf-8") == "A"):
-        # time.sleep(0.1)
-        # data_left = ser.inWaiting()
-        # received_data += ser.read(data_left)
-        print(received_data.decode("utf-8"))
+    while ser.in_waiting: 
+        received_data = ser.read() 
+        print(received_data.decode("utf-8"), end='')
         writeToLCD(lcd, received_data.decode("utf-8"), 1)
-        #time.sleep(5)
+    
+    time.sleep(5)
