@@ -26,9 +26,9 @@ while(1):
             print("type:" + data["type"]) 
             clearLCD(lcd) 
             writeToLCD(lcd, "type:" + data["type"], 1)
-            ser.write("Aye Matey!\r".encode("utf-8"))
+            ser.write("Aye Matey!\n".encode("utf-8"))
         except:
-            ser.write("Nay Matey!\r".encode("utf-8"))
+            ser.write("Nay Matey!\n".encode("utf-8"))
         finally:
             received_data = bytearray()
             newData = False
