@@ -23,7 +23,7 @@ while(1):
         # print(received_data) 
         try:
             data = json.loads(received_data.decode("utf-8")) 
-            print(json.data(data, indent=4)) 
+            print(json.dumps(data, indent=4)) 
             clearLCD(lcd) 
             writeToLCD(lcd, "Recieved " + data["type"] + " cmd", 1)
             ser.write("Aye Matey!\n\r".encode("utf-8"))
