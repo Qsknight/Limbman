@@ -10,19 +10,18 @@ from LCDUtil import *
 # Inits
 lcd = LCD()
 ser = serial.Serial ("/dev/ttyS0", 9600)
-print(serial.__version__)
-received_data = ""
+received_data = new bytearray()
 newData = False
 
 # Loop
 while(1):
     while ser.in_waiting: 
-        received_data += ser.read().decode("utf-8") 
+        received_data.append(ser.read())
         newData = True
         
     if newData:    
         # print(received_data) 
-        data = json.loads(received_data) 
+        data = json.loads(received_data.decode("utf-8")) 
         print("type : " + data["type"]) 
         clearLCD(lcd) 
         writeToLCD(lcd, "type : " + data["type"], 1)
