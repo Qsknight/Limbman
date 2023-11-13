@@ -23,15 +23,14 @@ while(1):
         # print(received_data) 
         try:
             data = json.loads(received_data.decode("utf-8")) 
-            print("type : " + data["type"]) 
+            print("type:" + data["type"]) 
             clearLCD(lcd) 
             writeToLCD(lcd, "type:" + data["type"], 1)
-            
             ser.write("Aye Matey!".encode("utf-8"))
         except:
             ser.write("Nay Matey!".encode("utf-8"))
         finally:
-            received_data = ""
+            received_data = bytearray()
             newData = False
 
         
