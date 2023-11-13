@@ -10,7 +10,7 @@ from LCDUtil import *
 # Inits
 lcd = LCD()
 ser = serial.Serial ("/dev/ttyS0", 9600)
-received_data = new bytearray()
+received_data = bytearray()
 newData = False
 
 # Loop
