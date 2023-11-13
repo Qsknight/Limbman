@@ -22,6 +22,7 @@ def writeToPCA(data):
     kit.servo[1].angle = data["value"]["B"]["angle"]
     kit.servo[2].angle = data["value"]["C"]["angle"]
     kit.servo[3].angle = data["value"]["D"]["angle"]
+    kit.servo[0].set_pulse_width_range(1000, 2000)
     kit.servo[4].angle = data["value"]["E"]["angle"]
     kit.servo[5].angle = data["value"]["F"]["angle"]
 
