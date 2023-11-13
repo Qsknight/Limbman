@@ -1,19 +1,20 @@
 # Lib imports
 from rpi_lcd import LCD
-import random
-import string
 import time
+import serial
 
 # Comp imports
 from LCDUtil import *
 
 # Inits
 lcd = LCD()
+ser = serial.Serial ("/dev/ttyS0", 9600)
 
 # Loop
 while(1):
-    RANDl1 = ''.join(random.choice(string.ascii_uppercase) for _ in range(16))
-    RANDl2 = ''.join(random.choice(string.ascii_uppercase) for _ in range(16))
-    writeToLCD(lcd, RANDl1, 1)
-    writeToLCD(lcd, RANDl2, 2)
-    time.sleep(5)
+    received_data = ser.read() 
+    sleep(0.03)
+    data_left = ser.inWaiting()
+    received_data += ser.read(data_left)
+    writeToLCD(lcd, received_data, 1)
+    #time.sleep(5)
