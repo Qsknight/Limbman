@@ -22,6 +22,7 @@ while(1):
     if newData:    
         print(received_data)    
         writeToLCD(lcd, received_data, 1)
+        received_data = ""
         newData = False
         
     time.sleep(5)
