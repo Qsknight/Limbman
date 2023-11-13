@@ -10,18 +10,18 @@ from LCDUtil import *
 lcd = LCD()
 ser = serial.Serial ("/dev/ttyS0", 9600)
 print(serial.__version__)
-received_data = 0
+received_data = ""
 newData = False
 
 # Loop
 while(1):
     while ser.in_waiting: 
-        received_data += ser.read() 
+        received_data += ser.read().decode("utf-8") 
         newData = True
         
     if newData:    
-        print(received_data.decode("utf-8"))    
-        writeToLCD(lcd, received_data.decode("utf-8"), 1)
+        print(received_data)    
+        writeToLCD(lcd, received_data, 1)
         newData = False
         
     time.sleep(5)
