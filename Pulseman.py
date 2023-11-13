@@ -21,11 +21,18 @@ while(1):
         
     if newData:    
         # print(received_data) 
-        data = json.loads(received_data.decode("utf-8")) 
-        print("type : " + data["type"]) 
-        clearLCD(lcd) 
-        writeToLCD(lcd, "type : " + data["type"], 1)
-        received_data = ""
-        newData = False
+        try:
+            data = json.loads(received_data.decode("utf-8")) 
+            print("type : " + data["type"]) 
+            clearLCD(lcd) 
+            writeToLCD(lcd, "type:" + data["type"], 1)
+            
+            ser.write("Aye Matey!".encode("utf-8"))
+        except:
+            ser.write("Nay Matey!".encode("utf-8"))
+        finally:
+            received_data = ""
+            newData = False
+
         
-    time.sleep(5)
+    time.sleep(2)
