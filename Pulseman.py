@@ -17,5 +17,5 @@ while(1):
     data_left = ser.inWaiting()
     received_data += ser.read(data_left)
     print(received_data.decode("utf-8"))
-    writeToLCD(lcd, received_data, 1)
+    writeToLCD(lcd, received_data.decode("utf-8"), 1)
     #time.sleep(5)
