@@ -16,5 +16,6 @@ while(1):
     time.sleep(0.03)
     data_left = ser.inWaiting()
     received_data += ser.read(data_left)
-    writeToLCD(lcd, received_data, 1)
+    print(received_data)
+    # writeToLCD(lcd, received_data, 1)
     #time.sleep(5)
