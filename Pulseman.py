@@ -16,7 +16,7 @@ newData = False
 # Loop
 while(1):
     while ser.in_waiting: 
-        received_data.append(ser.read())
+        received_data.extend(ser.read())
         newData = True
         
     if newData:    
