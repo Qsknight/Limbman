@@ -13,7 +13,7 @@ ser = serial.Serial ("/dev/ttyS0", 9600)
 # Loop
 while(1):
     received_data = ser.read() 
-    sleep(0.03)
+    time.sleep(0.03)
     data_left = ser.inWaiting()
     received_data += ser.read(data_left)
     writeToLCD(lcd, received_data, 1)
